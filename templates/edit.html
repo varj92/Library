@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body%}
+{% for book in data %}
+<form method="POST" action="/edit/{{book.key()}}">
+    <h2>Edit Book</h2>
+    <div class="form-control">
+        <label for="title">Book Title:</label>
+        <input type="text" name="name" value="{{book.val().name}}">
+        <label for="content">Author:</label>
+        <input type="text" name="author" value="{{book.val().author}}">
+        <input type="submit" value="Update">
+    </div>
+</form>
+{% endfor %}
+{% endblock %}
